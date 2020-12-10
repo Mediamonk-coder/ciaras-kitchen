@@ -1,10 +1,19 @@
 <template>
   <div>
+    <nav class="nav-bar w-full bg-blue-500 py-5 px-5 mb-5">
+      <nuxt-link to="/">
+        <h1 class="text-white text-2xl font-bold">Ciara's Kitchen</h1>
+      </nuxt-link>
+    </nav>
     <Nuxt />
   </div>
 </template>
 
 <style>
+.nav-bar {
+  background: #528b8b;
+}
+
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
