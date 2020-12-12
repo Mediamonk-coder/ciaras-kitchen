@@ -1,50 +1,71 @@
 <template>
   <div class="w-full">
-    <section
-      v-if="searchType === 'Title'"
-      class="search-title flex items-center"
-    >
-      <div class="count-icon ml-5">
-        <h1 class="text-white font-bold text-center text-lg">
-          {{ recipeCountTitle }}
-        </h1>
+    <section class="sticky top-0">
+      <section class="search">
+        <div>
+          <img
+            v-if="searchType === 'Ingredients'"
+            class="search-pic absolute z-0 w-full object-cover"
+            src="../static/images/tomatoes.jpg"
+            alt="background image"
+          />
+          <img
+            v-else
+            class="search-pic absolute z-0 w-full object-cover"
+            src="../static/images/dish.jpg"
+            alt="background image"
+          />
+        </div>
+        <section
+          v-if="searchType === 'Title'"
+          class="search-title flex items-center z-10 h-48 justify-center max-w-lg m-auto"
+        >
+          <div class="count-icon ml-5 z-10">
+            <h1 class="text-white font-bold text-center text-lg">
+              {{ recipeCountTitle }}
+            </h1>
+          </div>
+          <input
+            v-model="searchTitle"
+            type="text"
+            class="flex w-full ml-2 mr-5 my-2 px-5 py-2 rounded border-solid border-2 border-gray-400 z-10"
+            placeholder="search by name"
+          />
+        </section>
+        <section
+          v-else
+          class="search-title flex items-center z-10 h-48 justify-center max-w-lg m-auto"
+        >
+          <div class="count-icon ml-5 z-10">
+            <h1 class="text-white font-bold text-center text-lg">
+              {{ recipeCountIngredient }}
+            </h1>
+          </div>
+          <input
+            v-model="searchIngredient"
+            type="text"
+            class="flex w-full ml-2 mr-5 my-2 px-5 py-2 rounded border-solid border-2 border-gray-400 z-10"
+            placeholder="search by ingredients"
+          />
+        </section>
+      </section>
+      <div class="search-toggle mx-5 text-right z-10">
+        <button
+          v-if="searchType === 'Title'"
+          class="border hover:bg-gray-600 shadow px-4 pt-3 pb-1 text-white rounded-b-xl"
+          @click="toggleSearch"
+        >
+          search by ingredient
+        </button>
+        <button
+          v-else
+          class="border hover:bg-gray-600 shadow px-4 pt-3 pb-1 text-white rounded-b-xl"
+          @click="toggleSearch"
+        >
+          search by name
+        </button>
       </div>
-      <input
-        v-model="searchTitle"
-        type="text"
-        class="flex w-full ml-2 mr-5 my-2 px-5 py-2 rounded border-solid border-2 border-gray-400"
-        placeholder="search by name"
-      />
     </section>
-    <section v-else class="search-ingredients flex items-center">
-      <div class="count-icon ml-5">
-        <h1 class="text-white font-bold text-center text-lg">
-          {{ recipeCountIngredient }}
-        </h1>
-      </div>
-      <input
-        v-model="searchIngredient"
-        type="text"
-        class="flex w-full ml-2 mr-5 my-2 px-5 py-2 rounded border-solid border-2 border-gray-400"
-        placeholder="search by ingredients"
-      />
-    </section>
-    <div class="search-toggle mx-5 text-right">
-      <button
-        v-if="searchType === 'Title'"
-        class="border hover:bg-gray-600 shadow px-4 py-1 text-white font-bold rounded-xl"
-        @click="toggleSearch"
-      >
-        Search by Ingredient
-      </button>
-      <button
-        v-else
-        class="border hover:bg-gray-600 shadow px-4 py-1 text-white font-bold rounded-xl"
-        @click="toggleSearch"
-      >
-        Search by Name
-      </button>
-    </div>
     <section>
       <RecipeList
         v-if="searchTitle !== ''"
@@ -140,17 +161,20 @@ export default {
 <style scoped>
 .count-icon {
   border-radius: 50%;
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   padding: 10px;
-  background: #73b1b7;
+  background: maroon;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.search-pic {
+  height: 200px;
+}
 
 button {
   outline: none;
-  background: #528b8b;
+  background: maroon;
 }
 </style>

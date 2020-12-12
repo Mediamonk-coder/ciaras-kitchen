@@ -1,8 +1,10 @@
 <template>
   <div>
-    <nav class="nav-bar w-full bg-blue-500 py-5 px-5 mb-5">
+    <nav class="nav-bar w-full py-2 px-5 sticky top-0">
       <nuxt-link to="/">
-        <h1 class="text-white text-2xl font-bold">Ciara's Kitchen</h1>
+        <h1 class="text-gray text-4xl font-light tracking-wider">
+          Ciara's Kitchen
+        </h1>
       </nuxt-link>
     </nav>
     <Nuxt />
@@ -11,7 +13,7 @@
 
 <style>
 .nav-bar {
-  background: #528b8b;
+  background: white;
 }
 
 html {

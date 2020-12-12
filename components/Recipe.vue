@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <div class="m-auto max-w-5xl mt-10">
+    <div class="m-auto max-w-5xl mt-2">
       <!-- <h1 class="text-3xl text-orange-700 font-semibold mx-5 my-5">
         {{ recipe.title.toUpperCase() }}
       </h1> -->
